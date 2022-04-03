@@ -1,0 +1,52 @@
+.Nav{
+    width:50px;
+    height: 100vh;
+    background-color: rgb(13, 34, 51);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 4%;
+    padding: 10px;
+    
+  }
+  .navIcon{
+    filter: brightness(0) invert(1); 
+    width: 20px;
+    margin-top: 20px;
+  }
+  .userIcon{
+      border-bottom: 1px solid rgba(196, 184, 184, .3);
+  }
+  .top,.bottom{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+  }
+  .top{
+      flex:4;
+      gap:17px;
+
+  }
+.bottom{
+    flex: 1;
+}
+.dots{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    filter: none;
+}
+
+.threedot{
+    width:15px;
+    height: 20px;
+    opacity: .5;
+    position: absolute;
+    right: -10px;
+    top:20px;
+
+    
+}

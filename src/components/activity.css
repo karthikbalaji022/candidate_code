@@ -1,0 +1,90 @@
+.activityContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(216, 214, 214, 0.226);
+  height: 60px;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,.3);
+}
+.activityLeft {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  gap: 10px;
+  color: rgba(119, 113, 113);
+}
+.jobImage {
+  width: 20px;
+  height: 20px;
+}
+.jobDetail {
+  border: 1px solid rgba(119, 113, 113, 0.5);
+  padding: 4px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  font-size: 0.8rem;
+}
+.activityRight {
+  display: flex;
+  gap: 40px;
+  padding-right: 40px;
+  align-items: center;
+}
+.published {
+    background-color: rgb(13, 34, 51);
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -ms-border-radius:5px;
+  -o-border-radius:5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:130px;
+  height:30px;
+  padding: 6px;
+  font-weight: 600;
+}
+.internet{
+    width:20px;
+    filter: brightness(0) invert(1); 
+}
+.downArrow{
+    width:10px;
+    height: 10px;
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+}
+.dropDownActivity{
+    border:0;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+}
+.addCandidateButton{
+    width:130px;
+    height: 30px;
+    border: 1px solid rgba(140, 141, 143, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: .9rem;
+    padding-left: 5px;
+    color: rgb(63, 58, 58);
+    text-align: center;
+    font-weight: 00;
+}
+.addCandidateButton>.dropDownActivity{
+    color: black;
+    border-left: 1px solid rgba(0,0,0,.4);
+    height: 100%;
+    width: 20px;
+}

@@ -1,0 +1,119 @@
+.headContainer{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    height:70px;
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap:20px;
+    padding: 20px;
+    
+}
+.accountImageContainer{
+    background-color: rgb(49, 73, 182);
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    padding: 4px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.accountImagedesign{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color:rgb(49, 73, 182);
+  top:0px;
+  right: 0px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.accountImage{
+   width:20px;
+   z-index: 2;
+   filter: brightness(0) invert(1);
+   border-radius: 100%;
+   -webkit-border-radius: 100%;
+   -moz-border-radius: 100%;
+   -ms-border-radius: 100%;
+   -o-border-radius: 100%;
+   -webkit-filter: brightness(0) invert(1);
+}
+.left>h1{
+font-size: 1.5rem;
+font-weight: 400;
+color: rgb(105, 103, 103);
+}
+.right{
+    display: flex;
+    flex: 4;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+.search{
+    display: flex;
+    border-bottom: 1px solid rgba(192, 171, 171, 0.5);
+    gap:10px;
+}
+.searchContainer{
+    outline: 0;
+    border: 0;
+    width:200px;
+}
+.searchIcon{
+    width:20px;
+    height: 20px;
+}
+.addNew{
+    width:90px;
+    height:30px;
+    background-color: rgb(13, 34, 51);
+    color: white;
+    font-size: .9rem;
+    font-weight: 600;
+    border: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-left: 50px;
+}
+.gifts{
+width:50px;
+height:40px;
+margin-left: 40px;
+padding:3px;
+}
+.userLogin{
+    margin:0 30px 0 50px;
+    width:40px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(86, 146, 90, 0.6);
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    opacity: .8;
+}
