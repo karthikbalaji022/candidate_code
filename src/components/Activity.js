@@ -1,7 +1,6 @@
 import React from "react";
 import './activity.css'
  import job from '../images/activity/briefcase.png'
- import downArrow from '../images/activity/downArrow.png'
  import internet from '../images/activity/internet.png'
 function Activity(){
     return(

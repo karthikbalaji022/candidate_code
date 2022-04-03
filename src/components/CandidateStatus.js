@@ -87,7 +87,7 @@ function Status() {
           <DragDropContext
             onDragEnd={result => DragEnd(result, columnView, SetColumnView)}
           >
-            {Object.entries(columnView).map(([columnId, colitem], index) => {
+            {Object.entries(columnView).map(([columnId, colitem]) => {
               return (
                 <div className="columnContainer" key={columnId}>
                   <div className="columnTitleCard">

@@ -10,7 +10,7 @@ function App() {
   const initialState={
     inputText:'',
   };
-  function reducer(state,action)
+  function reducer(reducerstate,action)
   {
     switch(action.type){
       case 'SearchChange':
@@ -18,7 +18,7 @@ function App() {
           inputText:action.data
         };
         default:
-          return state;
+          return reducerstate;
     }
   }
   const [state,dispatch]=useReducer(reducer,initialState);
