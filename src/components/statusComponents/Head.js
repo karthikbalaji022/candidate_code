@@ -5,9 +5,9 @@ import upload from '../../images/sortIcon/upload.png'
 import './head.css'
 function Head(){
     return(
-        <div className="headStatus">
-        <div className="sortLeft">
-            <div className="activeStatus">
+        <div style={{  width:"100%",height:"50px",display: "flex",alignItems: "center",position: "fixed",backgroundColor: "rgb(216, 216, 216)"}}>
+        <div style={{flex:"85%",display: "flex",gap:"5px"}}>
+            <div style={{display: "flex",alignItems: "center",padding: "5px",width:"250px",gap:"10px",fontWeight: "600",marginRight: "40px"}}>
                 <p>All candidates - </p>
                 <select className="candidateSelect">
                     <option value="Active">Active</option>
@@ -16,16 +16,16 @@ function Head(){
             </div>
             <div className="sortStatus">
             <p className="sortName">Sort by </p>
-            <select className="candidateSort">
+            <select style={{backgroundColor: "transparent",border: 0,width:"fit-content",color:"rgb(37, 35, 63)",fontWeight: "600",fontSize: "14px"}}>
                     <option value="Last Updated">Last Updated</option>
                     <option value="Stage">Stage</option>
                 </select>
             </div>
             </div>
-            <div className="sortRight">
-                <img src={filter} className="sortIcon"/>
-                <img src={list} className="sortIcon"/>
-                <img src={upload} className="sortIcon"/>
+            <div style={{flex:"15%",display: "flex",gap:"5px",alignItems: "center"}}>
+                <img src={filter} style={{ width:"22px",height:"22px",margin:"10px"}}/>
+                <img src={list} style={{ width:"22px",height:"22px",margin:"10px"}}/>
+                <img src={upload} style={{ width:"22px",height:"22px",margin:"10px"}}/>
             </div>
         </div>
     )
