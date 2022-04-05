@@ -16,12 +16,18 @@ const DragEnd = (result, columns, setColumns) => {
         if(result.type==="column")
         {
           if(sourceItems.length==0) return;
-        destItems.push(...sourceItems)
-        sourceItems=[]
+          
+        setColumns({
+          ...columns,
+          [source.droppableId]:destColumn,
+          [destination.droppableId]:sourceColumn
+          }
+        )
+        // console.log(sourceColumn)
+        // console.log(destColumn)
         }else{
         const [removed] = sourceItems.splice(source.index, 1);
         destItems.splice(destination.index, 0, removed);
-        }
         setColumns({
           ...columns,
           [source.droppableId]: {
@@ -35,6 +41,8 @@ const DragEnd = (result, columns, setColumns) => {
             count:destItems.length
           }
         });
+        }
+        
     } else {
         const column = columns[source.droppableId];
         const copiedItems = [...column.items];
@@ -97,14 +105,14 @@ const DragEnd = (result, columns, setColumns) => {
                 <Draggable key={columnId} draggableId={columnId} index={index} >
                   {provided=>{
                     return(
-                      <div ref={provided.innerRef} >
+                      <div ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}>
                   <div style={{backgroundColor: "white",width: "100%",height:"40px",fontSize:" 1.1rem",fontWeight: "600",display: "flex",alignItems: "center",borderRadius: "5px",overflow: "hidden",textOverflow: "ellipsis",whiteSpace: "nowrap"}}
-                   {...provided.dragHandleProps} >
+                    >
                     <div style={{height:"100%",width:"5px",backgroundColor: "rgb(243, 51, 44)"}}></div>
                     <p style={{margin: "10px",color: "rgb(36, 33, 33)"}}>{`${colitem.name}`}</p>
                     <p style={{color:"rgb(97, 94, 94)"}}>- {colitem.count}</p>
                   </div>
-                  <div style={{color: "black"}} {...provided.draggableProps}>
+                  <div style={{color: "black"}} >
                    <DropCard columnId={columnId} colitem={colitem}/>
                   </div>
                   </div>
