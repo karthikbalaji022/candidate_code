@@ -105,8 +105,8 @@ function Status() {
                 <Draggable key={columnId} draggableId={columnId} index={index} >
                   {provided=>{
                     return(
-                      <div ref={provided.innerRef} {...provided.dragHandleProps}>
-                  <div className="columnTitleCard" >
+                      <div ref={provided.innerRef} >
+                  <div className="columnTitleCard"{...provided.dragHandleProps} >
                     <div className="columnCardSide"></div>
                     <p className="columnName">{`${colitem.name}`}</p>
                     <p className="columnCount">- {colitem.count}</p>
