@@ -1,7 +1,6 @@
 import React from "react";
 import star from '../../images/card/star.png'
 import dots from '../../images/card/threedots.png'
-
 function Card({name,company}){
 return(
 <div style={{width:"100%",minHeight: "100px",display: "flex",flexDirection: "column"}}>
@@ -22,5 +21,4 @@ return(
 </div>
 );
 }
-
 export default Card;

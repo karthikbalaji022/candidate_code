@@ -2,7 +2,6 @@ import React,{useContext} from "react";
 import gifts from "../images/head/gifts.png";
 import account from "../images/head/account.png";
 import search from "../images/head/search.png";
-import "./head.css";
 import {AppContext} from '../App'
 function Head() {
     const {state,dispatch}=useContext(AppContext);

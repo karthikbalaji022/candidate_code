@@ -9,9 +9,7 @@ import setting from '../images/navicon/setting.png'
 import users from '../images/navicon/users.png'
 import briefcase from '../images/navicon/briefcase.png'
 import './Nav.css'
-
 function Nav(){
-
     return(
         <div className="Nav" style={{width:"50px",height:"100vh",padding:"10px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
             <div style={{display: "flex",flexDirection: "column",alignItems: "center",flex:4,gap:"17px"}}>
@@ -30,7 +28,5 @@ function Nav(){
                 <img src={app_draw} alt="navicon" className='navIcon'/>
             </div>
         </div>
-    )
-}
-
+    )}
 export default Nav;

@@ -5,35 +5,11 @@ import contact from '../data/ContactedColumnData'
 import written from '../data/WrittenColumnData'
 import technical from '../data/TechnicalColumnData'
 import cultural from '../data/CulturalColumnData'
-
-
-const columnData = {
-  
-    [uuid()]: {
-      name: "Open",
-      items: open,
-      count:open.length,
-    },
-    [uuid()]: {
-      name: "Contacted",
-      items: contact,
-      count:contact.length,
-    },
-    [uuid()]: {
-      name: "Written Test",
-      items: written,
-      count:written.length,
-    },
-    [uuid()]: {
-      name: "Technical Round",
-      items: technical,
-      count:technical.length,
-    },
-    [uuid()]: {
-      name: "Cultural fit round",
-      items: cultural,
-      count:cultural.length,
-    }
+const columnData = {  
+    [uuid()]: {name: "Open",items: open,count:open.length,},
+    [uuid()]: {name: "Contacted",items: contact,count:contact.length,},
+    [uuid()]: { name: "Written Test", items: written, count:written.length,},
+    [uuid()]: {name: "Technical Round", items: technical,count:technical.length, },
+    [uuid()]: {name: "Cultural fit round", items: cultural,count:cultural.length,}
   };
-
   export default columnData;

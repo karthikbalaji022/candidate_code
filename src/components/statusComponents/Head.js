@@ -29,5 +29,4 @@ function Head(){
         </div>
     )
 }
-
 export default Head;
