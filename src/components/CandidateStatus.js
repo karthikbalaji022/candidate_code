@@ -3,8 +3,8 @@ import "./candidate.css";
 import Head from "./statusComponents/Head";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import ColumnData from "./data/columnsData";
-import Card from "./statusComponents/Card";
 import { AppContext } from "../App";
+import DropCard from "./statusComponents/DropCard";
 
 
 const DragEnd = (result, columns, setColumns) => {
@@ -13,10 +13,17 @@ const DragEnd = (result, columns, setColumns) => {
     if (source.droppableId !== destination.droppableId) {
         const sourceColumn = columns[source.droppableId];
         const destColumn = columns[destination.droppableId];
-        const sourceItems = [...sourceColumn.items];
+        console.log(result)
+        let sourceItems = [...sourceColumn.items];
         const destItems = [...destColumn.items];
+        if(result.type==="column")
+        {
+        destItems.push(...sourceItems)
+        sourceItems=[]
+        }else{
         const [removed] = sourceItems.splice(source.index, 1);
         destItems.splice(destination.index, 0, removed);
+        }
         setColumns({
           ...columns,
           [source.droppableId]: {
@@ -46,6 +53,7 @@ const DragEnd = (result, columns, setColumns) => {
         
     }
   };
+
 function Status() {
   const [columnView,SetColumnView]=useState(ColumnData);
   const {state,dispatch}=useContext(AppContext);
@@ -87,75 +95,38 @@ function Status() {
           <DragDropContext
             onDragEnd={result => DragEnd(result, columnView, SetColumnView)}
           >
-            {Object.entries(columnView).map(([columnId, colitem]) => {
+            {Object.entries(columnView).map(([columnId, colitem],index) => {
               return (
-                <div className="columnContainer" key={columnId}>
-                  <div className="columnTitleCard">
+                <Droppable droppableId={columnId} type="column">
+                  {provided=>{
+                    return(
+                      
+                <div className="columnContainer" key={columnId} ref={provided.innerRef} {...provided.droppableProps}>
+                <Draggable key={columnId} draggableId={columnId} index={index} >
+                  {provided=>{
+                    return(
+                      <div ref={provided.innerRef} {...provided.dragHandleProps}>
+                  <div className="columnTitleCard" >
                     <div className="columnCardSide"></div>
                     <p className="columnName">{`${colitem.name}`}</p>
                     <p className="columnCount">- {colitem.count}</p>
                   </div>
-                  <div className="dropCard">
-                    <Droppable droppableId={columnId} key={columnId}>
-                      {(provided, snapshot) => {
-                        return (
-                          <div
-                            className="droppableContainer"
-                            {...provided.droppableProps}
-                            ref={provided.innerRef}
-                            style={{
-                                background: snapshot.isDraggingOver
-                            ? "lightblue"
-                            :"",
-                              padding: 4,
-                              width: "100%",
-                              minHeight: "500px",
-                            }}
-                          >
-                            {colitem.items.map((item, index) => {
-                              if(item.show===false)
-                              {
-                                return;
-                              }
-                                return(
-                              <Draggable
-                                key={item.id}
-                                draggableId={item.id}
-                                index={index}
-                              >
-                                 
-                                {(provided, snapshot) => {
-                                  return (
-                                    <div
-                                        className="dropCardContainer"
-                                      ref={provided.innerRef}
-                                      {...provided.draggableProps}
-                                      {...provided.dragHandleProps}
-                                      style={{
-                                        backgroundColor: snapshot.isDragging
-                                          ? "#263B4A"
-                                          : "",
-                                        
-                                        ...provided.draggableProps.style,
-                                      }}
-                                    >
-                                        <Card
-                                            name={item.name}
-                                            company={item.company}
-                                        />
-                                    </div>
-                                  );
-                                }}
-                              </Draggable>
-                                );
-                            })}
-                            {provided.placeholder}
-                          </div>
-                        );
-                      }}
-                    </Droppable>
+                  <div className="dropCard" {...provided.draggableProps}>
+                   <DropCard
+                     columnId={columnId}
+                     colitem={colitem}
+                   />
                   </div>
+                  </div>
+                  )
+                  }}
+                </Draggable>
+                  {provided.placeholder}
                 </div>
+                
+                )
+                  }}
+                </Droppable>
               );
             })}
           </DragDropContext>
