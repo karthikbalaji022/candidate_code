@@ -23,8 +23,6 @@ const DragEnd = (result, columns, setColumns) => {
           [destination.droppableId]:sourceColumn
           }
         )
-        // console.log(sourceColumn)
-        // console.log(destColumn)
         }else{
         const [removed] = sourceItems.splice(source.index, 1);
         destItems.splice(destination.index, 0, removed);
@@ -103,9 +101,9 @@ const DragEnd = (result, columns, setColumns) => {
                 <div style={{display: "flex",flexDirection: "column",minWidth: "250px",minHeight:" 500px",margin:"10px",gap:"20px"}}
                  key={columnId} ref={provided.innerRef} {...provided.droppableProps}>
                 <Draggable key={columnId} draggableId={columnId} index={index} >
-                  {provided=>{
+                  {provided1=>{
                     return(
-                      <div ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}>
+                      <div ref={provided1.innerRef} {...provided1.dragHandleProps} {...provided1.draggableProps}>
                   <div style={{backgroundColor: "white",width: "100%",height:"40px",fontSize:" 1.1rem",fontWeight: "600",display: "flex",alignItems: "center",borderRadius: "5px",overflow: "hidden",textOverflow: "ellipsis",whiteSpace: "nowrap"}}
                     >
                     <div style={{height:"100%",width:"5px",backgroundColor: "rgb(243, 51, 44)"}}></div>
