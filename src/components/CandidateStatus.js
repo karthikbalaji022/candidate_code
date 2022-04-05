@@ -5,19 +5,17 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import ColumnData from "./data/columnsData";
 import { AppContext } from "../App";
 import DropCard from "./statusComponents/DropCard";
-
-
 const DragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;
     if (source.droppableId !== destination.droppableId) {
         const sourceColumn = columns[source.droppableId];
         const destColumn = columns[destination.droppableId];
-        console.log(result)
         let sourceItems = [...sourceColumn.items];
         const destItems = [...destColumn.items];
         if(result.type==="column")
         {
+          if(sourceItems.length==0) return;
         destItems.push(...sourceItems)
         sourceItems=[]
         }else{
@@ -37,7 +35,6 @@ const DragEnd = (result, columns, setColumns) => {
             count:destItems.length
           }
         });
-       
     } else {
         const column = columns[source.droppableId];
         const copiedItems = [...column.items];
@@ -50,11 +47,9 @@ const DragEnd = (result, columns, setColumns) => {
             items: copiedItems
           }
         });
-        
     }
   };
-
-function Status() {
+  function Status() {
   const [columnView,SetColumnView]=useState(ColumnData);
   const {state,dispatch}=useContext(AppContext);
   useEffect(
@@ -86,36 +81,31 @@ function Status() {
       })
     }
     ,[state]);
-
   return (
-    <div className="candidateContainer">
+    <div style={{display: "flex",flexDirection: "column",height: "100%",backgroundColor: "rgb(216, 216, 216)"}}>
       <Head />
-      <div className="temp">
-        <div className="tempContainer">
-          <DragDropContext
-            onDragEnd={result => DragEnd(result, columnView, SetColumnView)}
-          >
+      <div style={{overflowX: "scroll",overflowY: "scroll",width: "1310px",height: "452px",marginTop:"60px"}}>
+        <div style={{display: "flex",margin:"20px",gap:"20px"}}>
+          <DragDropContext onDragEnd={result => DragEnd(result, columnView, SetColumnView)} >
             {Object.entries(columnView).map(([columnId, colitem],index) => {
               return (
                 <Droppable droppableId={columnId} type="column">
                   {provided=>{
                     return(
-                      
-                <div className="columnContainer" key={columnId} ref={provided.innerRef} {...provided.droppableProps}>
+                <div style={{display: "flex",flexDirection: "column",minWidth: "250px",minHeight:" 500px",margin:"10px",gap:"20px"}}
+                 key={columnId} ref={provided.innerRef} {...provided.droppableProps}>
                 <Draggable key={columnId} draggableId={columnId} index={index} >
                   {provided=>{
                     return(
                       <div ref={provided.innerRef} >
-                  <div className="columnTitleCard"{...provided.dragHandleProps} >
-                    <div className="columnCardSide"></div>
-                    <p className="columnName">{`${colitem.name}`}</p>
-                    <p className="columnCount">- {colitem.count}</p>
+                  <div style={{backgroundColor: "white",width: "100%",height:"40px",fontSize:" 1.1rem",fontWeight: "600",display: "flex",alignItems: "center",borderRadius: "5px",overflow: "hidden",textOverflow: "ellipsis",whiteSpace: "nowrap"}}
+                   {...provided.dragHandleProps} >
+                    <div style={{height:"100%",width:"5px",backgroundColor: "rgb(243, 51, 44)"}}></div>
+                    <p style={{margin: "10px",color: "rgb(36, 33, 33)"}}>{`${colitem.name}`}</p>
+                    <p style={{color:"rgb(97, 94, 94)"}}>- {colitem.count}</p>
                   </div>
-                  <div className="dropCard" {...provided.draggableProps}>
-                   <DropCard
-                     columnId={columnId}
-                     colitem={colitem}
-                   />
+                  <div style={{color: "black"}} {...provided.draggableProps}>
+                   <DropCard columnId={columnId} colitem={colitem}/>
                   </div>
                   </div>
                   )
@@ -123,9 +113,7 @@ function Status() {
                 </Draggable>
                   {provided.placeholder}
                 </div>
-                
-                )
-                  }}
+                )}}
                 </Droppable>
               );
             })}
@@ -133,7 +121,5 @@ function Status() {
         </div>
       </div>
     </div>
-  );
-}
-
+  );}
 export default Status;

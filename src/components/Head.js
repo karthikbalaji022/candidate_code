@@ -19,8 +19,7 @@ function Head() {
       <div style={{  display: "flex",flex: "4",justifyContent: "flex-end",alignItems: "center"}}>
         <div style={{display: "flex",borderBottom: "1px solid rgba(192, 171, 171, 0.5)",gap:"10px"}}>
           <img src={search} style={{width:"20px",height: "20px"}} />
-          <input
-            style={{ outline: 0,border: 0,width:"200px"}} type="text" id="searchBar" placeholder="Search"
+          <input style={{ outline: 0,border: 0,width:"200px"}} type="text" id="searchBar" placeholder="Search"
             onChange={e=>dispatch({type:'SearchChange',data:e.target.value})}
           />
         </div>
@@ -29,7 +28,5 @@ function Head() {
         <div className="userLogin">S</div>
       </div>
     </div>
-  );
-}
-
+  );}
 export default Head;
